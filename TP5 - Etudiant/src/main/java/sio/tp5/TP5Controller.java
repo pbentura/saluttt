@@ -8,8 +8,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 //import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldListCell;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.converter.IntegerStringConverter;
 import sio.tp5.Model.Client;
 import sio.tp5.Model.Commande;
 import sio.tp5.Model.Fleur;
@@ -50,7 +54,7 @@ public class TP5Controller implements Initializable {
     @FXML
     private TableColumn tcQuantite;
     @FXML
-    private TableView tvFleurs;
+    private TableView<Fleur> tvFleurs;
     @FXML
     private Button cmdValider;
     @FXML
@@ -96,6 +100,8 @@ public class TP5Controller implements Initializable {
         tcNom.setCellValueFactory(new PropertyValueFactory<>("nomFleur"));
         tcPrix.setCellValueFactory(new PropertyValueFactory<>("prixFleur"));
         tcQuantite.setCellValueFactory(new PropertyValueFactory<>("quantiteFleur"));
+
+        tcQuantite.setCellFactory(tc-> new TextFieldTableCell<>(new IntegerStringConverter()));
 
         tvFleurs.setItems(FXCollections.observableArrayList(lesfleurs));
 
@@ -149,13 +155,21 @@ public class TP5Controller implements Initializable {
     @FXML
     public void tvFleursClicked(Event event)
     {
-
+        String nomFleur = ((Fleur)tvFleurs.getSelectionModel().getSelectedItem()).getNomFleur();
+        Image image = new Image(getClass().getResource("/Images/"+nomFleur+".jpg").toString());
+        imgFleur.setImage(image);
     }
 
     @FXML
     public void cmdValiderClicked(Event event)
     {
-
+        double montant = 0;
+        for (Fleur fleur : tvFleurs.getItems()){
+            if (fleur.getQuantiteFleur() != 0){
+                montant+=fleur.getPrixFleur() * fleur.getQuantiteFleur();
+            }
+        }
+        txtMontant.setText(String.valueOf(montant));
     }
 
     @FXML

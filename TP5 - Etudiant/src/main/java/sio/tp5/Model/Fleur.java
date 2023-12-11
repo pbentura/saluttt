@@ -23,4 +23,8 @@ public class Fleur
         this.prixFleur = prixFleur;
         this.quantiteFleur = quantiteFleur;
     }
+
+    public void setQuantiteFleur(int quantiteFleur) {
+        this.quantiteFleur = quantiteFleur;
+    }
 }
