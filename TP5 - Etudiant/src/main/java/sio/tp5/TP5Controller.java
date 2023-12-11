@@ -80,10 +80,17 @@ public class TP5Controller implements Initializable {
         lescommandes = new ArrayList<>();
         initData();
 
-        for (Client clt : lesclients)
+//        for (Client clt : lesclients)
+//        {
+//            cboClients.getItems().add(clt.getNomClient());
+//        }
+//        cboClients.getSelectionModel().selectFirst();
+
+        for (int i=0; i < lesclients.size(); i++)
         {
-            cboClients.getItems().add(clt.getNumeroClient());
+            cboClients.getItems().add(lesclients.get(i).getNomClient());
         }
+        cboClients.getSelectionModel().selectFirst();
     }
 
     public void initData()
@@ -109,11 +116,12 @@ public class TP5Controller implements Initializable {
          fleur = new Fleur("Fleur10",2.55,0);
         lesfleurs.add(fleur);
 
+
         Client client = new Client(1,"Jean-Morris");
         lesclients.add(client);
-        client = new Client(1,"Patrick");
+        client = new Client(2,"Patrick");
         lesclients.add(client);
-        client = new Client(1,"Poulet");
+        client = new Client(3,"Poulet");
         lesclients.add(client);
     }
 
