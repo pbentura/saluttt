@@ -1,11 +1,13 @@
 package sio.tp5;
 
 
+import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 //import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sio.tp5.Model.Client;
@@ -91,6 +93,13 @@ public class TP5Controller implements Initializable {
             cboClients.getItems().add(lesclients.get(i).getNomClient());
         }
         cboClients.getSelectionModel().selectFirst();
+        tcNom.setCellValueFactory(new PropertyValueFactory<>("nomFleur"));
+        tcPrix.setCellValueFactory(new PropertyValueFactory<>("prixFleur"));
+        tcQuantite.setCellValueFactory(new PropertyValueFactory<>("quantiteFleur"));
+
+        tvFleurs.setItems(FXCollections.observableArrayList(lesfleurs));
+
+        txtNumCommande.setText("1");
     }
 
     public void initData()

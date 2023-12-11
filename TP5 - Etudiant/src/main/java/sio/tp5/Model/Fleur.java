@@ -6,6 +6,18 @@ public class Fleur
     private double prixFleur;
     private int quantiteFleur;
 
+    public String getNomFleur() {
+        return nomFleur;
+    }
+
+    public double getPrixFleur() {
+        return prixFleur;
+    }
+
+    public int getQuantiteFleur() {
+        return quantiteFleur;
+    }
+
     public Fleur(String nomFleur, double prixFleur, int quantiteFleur) {
         this.nomFleur = nomFleur;
         this.prixFleur = prixFleur;
