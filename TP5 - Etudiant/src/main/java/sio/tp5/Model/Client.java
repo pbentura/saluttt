@@ -9,4 +9,12 @@ public class Client
         this.numeroClient = numeroClient;
         this.nomClient = nomClient;
     }
+
+    public int getNumeroClient() {
+        return numeroClient;
+    }
+
+    public String getNomClient() {
+        return nomClient;
+    }
 }

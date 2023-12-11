@@ -79,6 +79,11 @@ public class TP5Controller implements Initializable {
         lesfleurs = new ArrayList<>();
         lescommandes = new ArrayList<>();
         initData();
+
+        for (Client clt : lesclients)
+        {
+            cboClients.getItems().add(clt.getNumeroClient());
+        }
     }
 
     public void initData()
@@ -105,6 +110,11 @@ public class TP5Controller implements Initializable {
         lesfleurs.add(fleur);
 
         Client client = new Client(1,"Jean-Morris");
+        lesclients.add(client);
+        client = new Client(1,"Patrick");
+        lesclients.add(client);
+        client = new Client(1,"Poulet");
+        lesclients.add(client);
     }
 
     @FXML
