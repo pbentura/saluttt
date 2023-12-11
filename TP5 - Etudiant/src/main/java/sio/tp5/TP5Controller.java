@@ -48,7 +48,7 @@ public class TP5Controller implements Initializable {
     @FXML
     private TableColumn tcQuantite;
     @FXML
-    private TableView<Fleur> tvFleurs;
+    private TableView tvFleurs;
     @FXML
     private Button cmdValider;
     @FXML
